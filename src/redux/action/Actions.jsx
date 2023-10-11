@@ -1,4 +1,9 @@
-import {ADD_ITEM, CHANGE_THEME, REMOVE_ITEM} from '../ActionTypes';
+import {
+  ADD_ITEM,
+  CHANGE_LANGUAGE,
+  CHANGE_THEME,
+  REMOVE_ITEM,
+} from '../ActionTypes';
 
 export const addItemToCart = data => ({
   type: ADD_ITEM,
@@ -12,5 +17,9 @@ export const removeItemToCart = index => ({
 
 export const changeTheme = type => ({
   type: CHANGE_THEME,
+  payload: type,
+});
+export const changeLanguage = type => ({
+  type: CHANGE_LANGUAGE,
   payload: type,
 });
