@@ -63,7 +63,9 @@ const ChangeTheme = () => {
                 fontWeight: 'bold',
                 color: selectedTheme == true ? '#fff' : '#000',
               }}>
-              Login
+              {language === 'ENGLISH'
+                ? languages[1].english
+                : languages[1].hindi}
             </Text>
           </View>
           <View
@@ -86,7 +88,11 @@ const ChangeTheme = () => {
                   borderWidth: 1,
                   height: 50,
                 }}
-                placeholder="Enter Email"
+                placeholder={
+                  language === 'ENGLISH'
+                    ? languages[2].english
+                    : languages[2].hindi
+                }
                 placeholderTextColor={selectedTheme == true ? '#fff' : '#000'}
               />
             </View>
@@ -105,7 +111,11 @@ const ChangeTheme = () => {
                   borderWidth: 1,
                   height: 50,
                 }}
-                placeholder="Enter Password"
+                placeholder={
+                  language === 'ENGLISH'
+                    ? languages[3].english
+                    : languages[3].hindi
+                }
                 placeholderTextColor={selectedTheme == true ? '#fff' : '#000'}
               />
             </View>
@@ -116,7 +126,9 @@ const ChangeTheme = () => {
                 fontWeight: 'bold',
                 color: selectedTheme == true ? '#fff' : '#000',
               }}>
-              Forgot Password?
+              {language === 'ENGLISH'
+                ? languages[4].english
+                : languages[4].hindi}
             </Text>
             <TouchableOpacity
               style={{
@@ -134,16 +146,21 @@ const ChangeTheme = () => {
                   fontSize: 20,
                   fontWeight: 'bold',
                 }}>
-                Login
+                {language === 'ENGLISH'
+                  ? languages[1].english
+                  : languages[1].hindi}
               </Text>
             </TouchableOpacity>
             <Text
               style={{
                 fontSize: 20,
                 marginTop: 30,
+                fontWeight: 'bold',
                 color: selectedTheme == true ? '#fff' : '#000',
               }}>
-              Create new account
+              {language === 'ENGLISH'
+                ? languages[5].english
+                : languages[5].hindi}
             </Text>
 
             <TouchableOpacity

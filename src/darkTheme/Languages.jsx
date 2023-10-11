@@ -19,6 +19,7 @@ export const languages = [
     english: 'Forgot Password',
     hindi: 'पासवर्ड भूल गए',
   },
+
   {
     english: 'Create new account',
     hindi: 'नया खाता बनाएँ',
