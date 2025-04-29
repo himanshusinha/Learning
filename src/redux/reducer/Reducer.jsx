@@ -1,15 +1,36 @@
-import {ADD_ITEM, REMOVE_ITEM} from '../ActionTypes';
+// redux/cartReducer.js
+const initialState = [];
 
-export const Reducer = (state = [], action) => {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_ITEM:
-      return [...state, action.payload];
-    case REMOVE_ITEM:
-      const deleteArray = state.filter((item, index) => {
-        return index !== action.payload;
-      });
-      return deleteArray;
+    case 'ADD_ITEM':
+      const exists = state.find(item => item.id === action.payload.id);
+      if (exists) {
+        return state.map(item =>
+          item.id === action.payload.id
+            ? {...item, quantity: item.quantity + 1}
+            : item,
+        );
+      }
+      return [...state, {...action.payload, quantity: 1}];
+
+    case 'CHANGE_QUANTITY':
+      return state
+        .map(item => {
+          if (item.id === action.payload.id) {
+            const updatedQuantity =
+              action.payload.type === 'increase'
+                ? item.quantity + 1
+                : item.quantity - 1;
+            return {...item, quantity: Math.max(updatedQuantity, 0)};
+          }
+          return item;
+        })
+        .filter(item => item.quantity > 0);
+
     default:
       return state;
   }
 };
+
+export default cartReducer;

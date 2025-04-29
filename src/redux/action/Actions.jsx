@@ -1,25 +1,29 @@
-import {
-  ADD_ITEM,
-  CHANGE_LANGUAGE,
-  CHANGE_THEME,
-  REMOVE_ITEM,
-} from '../ActionTypes';
+// src/redux/action/Actions.js
 
-export const addItemToCart = data => ({
-  type: ADD_ITEM,
-  payload: data,
+import {ADD_ITEM, REMOVE_ITEM, CHANGE_ITEM_QUANTITY} from '../ActionTypes';
+
+export const addItemToCart = item => ({
+  type: 'ADD_ITEM',
+  payload: item,
 });
+
+export const changeItemQuantity = (id, type) => ({
+  type: 'CHANGE_QUANTITY',
+  payload: {id, type},
+});
+
 
 export const removeItemToCart = index => ({
   type: REMOVE_ITEM,
   payload: index,
 });
 
-export const changeTheme = type => ({
-  type: CHANGE_THEME,
-  payload: type,
+ 
+export const changeTheme = theme => ({
+  type: 'CHANGE_THEME',
+  payload: theme,
 });
-export const changeLanguage = type => ({
-  type: CHANGE_LANGUAGE,
-  payload: type,
+export const changeLanguage = language => ({
+  type: 'CHANGE_LANGUAGE',
+  payload: language,
 });
